@@ -1,0 +1,15 @@
+services:
+  apollo-server:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=file:/app/prisma/dev.db
+    volumes:
+      - db_data:/app/prisma
+    stdin_open: true
+    tty: true
+    restart: always
+
+volumes:
+  db_data:
